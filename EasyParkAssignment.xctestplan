@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "3F33963B-B5D1-411A-AE90-6A5D00F96A63",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:EasyParkAssignment.xcodeproj",
+      "identifier" : "39EC1FFB2A4E98AB007E4C37",
+      "name" : "EasyParkAssignment"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EasyParkAssignment.xcodeproj",
+        "identifier" : "39EC200B2A4E98AC007E4C37",
+        "name" : "EasyParkAssignmentTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EasyParkAssignment.xcodeproj",
+        "identifier" : "39EC20152A4E98AC007E4C37",
+        "name" : "EasyParkAssignmentUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

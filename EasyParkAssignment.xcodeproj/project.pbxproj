@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		390B49852A5170C200FBEE6C /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49842A5170C200FBEE6C /* NetworkingError.swift */; };
+		390B49D72A51AB6700FBEE6C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49BC2A51AB6700FBEE6C /* HomeView.swift */; };
+		390B49DA2A51AB6700FBEE6C /* FetchCountriesAPIServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49C02A51AB6700FBEE6C /* FetchCountriesAPIServiceImp.swift */; };
+		390B49DD2A51AB6700FBEE6C /* FetchCountriesDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49C72A51AB6700FBEE6C /* FetchCountriesDataLayer.swift */; };
+		390B49DE2A51AB6700FBEE6C /* FetchCountriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49CB2A51AB6700FBEE6C /* FetchCountriesRepository.swift */; };
+		390B49DF2A51AB6700FBEE6C /* FetchCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49CC2A51AB6700FBEE6C /* FetchCountriesUseCase.swift */; };
+		390B49E02A51AB6700FBEE6C /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49CE2A51AB6700FBEE6C /* Countries.swift */; };
+		390B49E32A51AB6700FBEE6C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49D32A51AB6700FBEE6C /* HomeViewModel.swift */; };
+		3976DE9C2A51CF4900307146 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DE9B2A51CF4900307146 /* HomeViewModelTests.swift */; };
+		3976DE9F2A51F1ED00307146 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DE9E2A51F1ED00307146 /* XCTestCase+Extensions.swift */; };
+		3976DEA42A51F2D900307146 /* FetchCountriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEA32A51F2D900307146 /* FetchCountriesUseCaseTests.swift */; };
+		3976DEA62A51F7CB00307146 /* FetchCountriesRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEA52A51F7CB00307146 /* FetchCountriesRepositoryTest.swift */; };
+		3976DEAA2A51FCFA00307146 /* FetchCountriesAPIServiceImpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEA92A51FCFA00307146 /* FetchCountriesAPIServiceImpTest.swift */; };
+		3976DEAC2A51FD1B00307146 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEAB2A51FD1B00307146 /* URLProtocolStub.swift */; };
+		3976DEAE2A51FE3A00307146 /* FetchCountriesDataLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEAD2A51FE3A00307146 /* FetchCountriesDataLayerTests.swift */; };
+		39EC20002A4E98AB007E4C37 /* EasyParkAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC1FFF2A4E98AB007E4C37 /* EasyParkAssignmentApp.swift */; };
+		39EC20042A4E98AC007E4C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39EC20032A4E98AC007E4C37 /* Assets.xcassets */; };
+		39EC20072A4E98AC007E4C37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39EC20062A4E98AC007E4C37 /* Preview Assets.xcassets */; };
+		39EC201B2A4E98AC007E4C37 /* EasyParkAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC201A2A4E98AC007E4C37 /* EasyParkAssignmentUITests.swift */; };
+		39EC201D2A4E98AC007E4C37 /* EasyParkAssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC201C2A4E98AC007E4C37 /* EasyParkAssignmentUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39EC200D2A4E98AC007E4C37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39EC1FF42A4E98AB007E4C37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39EC1FFB2A4E98AB007E4C37;
+			remoteInfo = EasyParkAssignment;
+		};
+		39EC20172A4E98AC007E4C37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39EC1FF42A4E98AB007E4C37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39EC1FFB2A4E98AB007E4C37;
+			remoteInfo = EasyParkAssignment;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		390B49842A5170C200FBEE6C /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		390B498B2A51983B00FBEE6C /* EasyParkAssignment.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyParkAssignment.xctestplan; sourceTree = "<group>"; };
+		390B49BC2A51AB6700FBEE6C /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		390B49C02A51AB6700FBEE6C /* FetchCountriesAPIServiceImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCountriesAPIServiceImp.swift; sourceTree = "<group>"; };
+		390B49C72A51AB6700FBEE6C /* FetchCountriesDataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCountriesDataLayer.swift; sourceTree = "<group>"; };
+		390B49CB2A51AB6700FBEE6C /* FetchCountriesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCountriesRepository.swift; sourceTree = "<group>"; };
+		390B49CC2A51AB6700FBEE6C /* FetchCountriesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCountriesUseCase.swift; sourceTree = "<group>"; };
+		390B49CE2A51AB6700FBEE6C /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		390B49D32A51AB6700FBEE6C /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3976DE9B2A51CF4900307146 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		3976DE9D2A51F17100307146 /* EasyParkAssignmentTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EasyParkAssignmentTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		3976DE9E2A51F1ED00307146 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		3976DEA32A51F2D900307146 /* FetchCountriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCountriesUseCaseTests.swift; sourceTree = "<group>"; };
+		3976DEA52A51F7CB00307146 /* FetchCountriesRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCountriesRepositoryTest.swift; sourceTree = "<group>"; };
+		3976DEA92A51FCFA00307146 /* FetchCountriesAPIServiceImpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCountriesAPIServiceImpTest.swift; sourceTree = "<group>"; };
+		3976DEAB2A51FD1B00307146 /* URLProtocolStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		3976DEAD2A51FE3A00307146 /* FetchCountriesDataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCountriesDataLayerTests.swift; sourceTree = "<group>"; };
+		39EC1FFC2A4E98AB007E4C37 /* EasyParkAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyParkAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EC1FFF2A4E98AB007E4C37 /* EasyParkAssignmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyParkAssignmentApp.swift; sourceTree = "<group>"; };
+		39EC20032A4E98AC007E4C37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39EC20062A4E98AC007E4C37 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		39EC200C2A4E98AC007E4C37 /* EasyParkAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyParkAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EC20162A4E98AC007E4C37 /* EasyParkAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyParkAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39EC201A2A4E98AC007E4C37 /* EasyParkAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyParkAssignmentUITests.swift; sourceTree = "<group>"; };
+		39EC201C2A4E98AC007E4C37 /* EasyParkAssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyParkAssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39EC1FF92A4E98AB007E4C37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EC20092A4E98AC007E4C37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EC20132A4E98AC007E4C37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		390B49B52A51AB6700FBEE6C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				390B49D22A51AB6700FBEE6C /* Presentation */,
+				390B49C82A51AB6700FBEE6C /* Domain */,
+				390B49C12A51AB6700FBEE6C /* Data */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		390B49BB2A51AB6700FBEE6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				390B49BC2A51AB6700FBEE6C /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		390B49C12A51AB6700FBEE6C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				390B49C22A51AB6700FBEE6C /* Repository */,
+				390B49C62A51AB6700FBEE6C /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		390B49C22A51AB6700FBEE6C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				390B49C02A51AB6700FBEE6C /* FetchCountriesAPIServiceImp.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		390B49C62A51AB6700FBEE6C /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				390B49C72A51AB6700FBEE6C /* FetchCountriesDataLayer.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		390B49C82A51AB6700FBEE6C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				390B49CA2A51AB6700FBEE6C /* Sources */,
+				390B49C92A51AB6700FBEE6C /* UseCases */,
+				390B49CD2A51AB6700FBEE6C /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		390B49C92A51AB6700FBEE6C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				390B49CC2A51AB6700FBEE6C /* FetchCountriesUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		390B49CA2A51AB6700FBEE6C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				390B49CB2A51AB6700FBEE6C /* FetchCountriesRepository.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		390B49CD2A51AB6700FBEE6C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				390B49CE2A51AB6700FBEE6C /* Countries.swift */,
+				390B49CF2A51AB6700FBEE6C /* Errors */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		390B49CF2A51AB6700FBEE6C /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				390B49842A5170C200FBEE6C /* NetworkingError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		390B49D22A51AB6700FBEE6C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				390B49BB2A51AB6700FBEE6C /* Views */,
+				3976DE922A51C05200307146 /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3976DE922A51C05200307146 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				390B49D32A51AB6700FBEE6C /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3976DE962A51CF0200307146 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3976DE9B2A51CF4900307146 /* HomeViewModelTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3976DEA02A51F28800307146 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3976DEAB2A51FD1B00307146 /* URLProtocolStub.swift */,
+				3976DE9E2A51F1ED00307146 /* XCTestCase+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3976DEA12A51F29400307146 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3976DEA92A51FCFA00307146 /* FetchCountriesAPIServiceImpTest.swift */,
+				3976DEAD2A51FE3A00307146 /* FetchCountriesDataLayerTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3976DEA22A51F29B00307146 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3976DEA52A51F7CB00307146 /* FetchCountriesRepositoryTest.swift */,
+				3976DEA32A51F2D900307146 /* FetchCountriesUseCaseTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		39EC1FF32A4E98AB007E4C37 = {
+			isa = PBXGroup;
+			children = (
+				390B498B2A51983B00FBEE6C /* EasyParkAssignment.xctestplan */,
+				39EC1FFE2A4E98AB007E4C37 /* EasyParkAssignment */,
+				39EC200F2A4E98AC007E4C37 /* EasyParkAssignmentTests */,
+				39EC20192A4E98AC007E4C37 /* EasyParkAssignmentUITests */,
+				39EC1FFD2A4E98AB007E4C37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39EC1FFD2A4E98AB007E4C37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39EC1FFC2A4E98AB007E4C37 /* EasyParkAssignment.app */,
+				39EC200C2A4E98AC007E4C37 /* EasyParkAssignmentTests.xctest */,
+				39EC20162A4E98AC007E4C37 /* EasyParkAssignmentUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39EC1FFE2A4E98AB007E4C37 /* EasyParkAssignment */ = {
+			isa = PBXGroup;
+			children = (
+				390B49B52A51AB6700FBEE6C /* Home */,
+				39EC1FFF2A4E98AB007E4C37 /* EasyParkAssignmentApp.swift */,
+				39EC20032A4E98AC007E4C37 /* Assets.xcassets */,
+				39EC20052A4E98AC007E4C37 /* Preview Content */,
+			);
+			path = EasyParkAssignment;
+			sourceTree = "<group>";
+		};
+		39EC20052A4E98AC007E4C37 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				39EC20062A4E98AC007E4C37 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		39EC200F2A4E98AC007E4C37 /* EasyParkAssignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				3976DE9D2A51F17100307146 /* EasyParkAssignmentTests-Bridging-Header.h */,
+				3976DE962A51CF0200307146 /* Presentation */,
+				3976DEA22A51F29B00307146 /* Domain */,
+				3976DEA12A51F29400307146 /* Data */,
+				3976DEA02A51F28800307146 /* Helpers */,
+			);
+			path = EasyParkAssignmentTests;
+			sourceTree = "<group>";
+		};
+		39EC20192A4E98AC007E4C37 /* EasyParkAssignmentUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39EC201A2A4E98AC007E4C37 /* EasyParkAssignmentUITests.swift */,
+				39EC201C2A4E98AC007E4C37 /* EasyParkAssignmentUITestsLaunchTests.swift */,
+			);
+			path = EasyParkAssignmentUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39EC1FFB2A4E98AB007E4C37 /* EasyParkAssignment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EC20202A4E98AC007E4C37 /* Build configuration list for PBXNativeTarget "EasyParkAssignment" */;
+			buildPhases = (
+				39EC1FF82A4E98AB007E4C37 /* Sources */,
+				39EC1FF92A4E98AB007E4C37 /* Frameworks */,
+				39EC1FFA2A4E98AB007E4C37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyParkAssignment;
+			packageProductDependencies = (
+			);
+			productName = EasyParkAssignment;
+			productReference = 39EC1FFC2A4E98AB007E4C37 /* EasyParkAssignment.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39EC200B2A4E98AC007E4C37 /* EasyParkAssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EC20232A4E98AC007E4C37 /* Build configuration list for PBXNativeTarget "EasyParkAssignmentTests" */;
+			buildPhases = (
+				39EC20082A4E98AC007E4C37 /* Sources */,
+				39EC20092A4E98AC007E4C37 /* Frameworks */,
+				39EC200A2A4E98AC007E4C37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39EC200E2A4E98AC007E4C37 /* PBXTargetDependency */,
+			);
+			name = EasyParkAssignmentTests;
+			productName = EasyParkAssignmentTests;
+			productReference = 39EC200C2A4E98AC007E4C37 /* EasyParkAssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39EC20152A4E98AC007E4C37 /* EasyParkAssignmentUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39EC20262A4E98AC007E4C37 /* Build configuration list for PBXNativeTarget "EasyParkAssignmentUITests" */;
+			buildPhases = (
+				39EC20122A4E98AC007E4C37 /* Sources */,
+				39EC20132A4E98AC007E4C37 /* Frameworks */,
+				39EC20142A4E98AC007E4C37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39EC20182A4E98AC007E4C37 /* PBXTargetDependency */,
+			);
+			name = EasyParkAssignmentUITests;
+			productName = EasyParkAssignmentUITests;
+			productReference = 39EC20162A4E98AC007E4C37 /* EasyParkAssignmentUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39EC1FF42A4E98AB007E4C37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					39EC1FFB2A4E98AB007E4C37 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					39EC200B2A4E98AC007E4C37 = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+						TestTargetID = 39EC1FFB2A4E98AB007E4C37;
+					};
+					39EC20152A4E98AC007E4C37 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 39EC1FFB2A4E98AB007E4C37;
+					};
+				};
+			};
+			buildConfigurationList = 39EC1FF72A4E98AB007E4C37 /* Build configuration list for PBXProject "EasyParkAssignment" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39EC1FF32A4E98AB007E4C37;
+			packageReferences = (
+			);
+			productRefGroup = 39EC1FFD2A4E98AB007E4C37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39EC1FFB2A4E98AB007E4C37 /* EasyParkAssignment */,
+				39EC200B2A4E98AC007E4C37 /* EasyParkAssignmentTests */,
+				39EC20152A4E98AC007E4C37 /* EasyParkAssignmentUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39EC1FFA2A4E98AB007E4C37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EC20072A4E98AC007E4C37 /* Preview Assets.xcassets in Resources */,
+				39EC20042A4E98AC007E4C37 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EC200A2A4E98AC007E4C37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EC20142A4E98AC007E4C37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39EC1FF82A4E98AB007E4C37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				390B49E02A51AB6700FBEE6C /* Countries.swift in Sources */,
+				390B49E32A51AB6700FBEE6C /* HomeViewModel.swift in Sources */,
+				390B49DE2A51AB6700FBEE6C /* FetchCountriesRepository.swift in Sources */,
+				390B49DD2A51AB6700FBEE6C /* FetchCountriesDataLayer.swift in Sources */,
+				390B49D72A51AB6700FBEE6C /* HomeView.swift in Sources */,
+				390B49DF2A51AB6700FBEE6C /* FetchCountriesUseCase.swift in Sources */,
+				390B49852A5170C200FBEE6C /* NetworkingError.swift in Sources */,
+				39EC20002A4E98AB007E4C37 /* EasyParkAssignmentApp.swift in Sources */,
+				390B49DA2A51AB6700FBEE6C /* FetchCountriesAPIServiceImp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EC20082A4E98AC007E4C37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3976DEAE2A51FE3A00307146 /* FetchCountriesDataLayerTests.swift in Sources */,
+				3976DEAA2A51FCFA00307146 /* FetchCountriesAPIServiceImpTest.swift in Sources */,
+				3976DEAC2A51FD1B00307146 /* URLProtocolStub.swift in Sources */,
+				3976DE9F2A51F1ED00307146 /* XCTestCase+Extensions.swift in Sources */,
+				3976DEA42A51F2D900307146 /* FetchCountriesUseCaseTests.swift in Sources */,
+				3976DEA62A51F7CB00307146 /* FetchCountriesRepositoryTest.swift in Sources */,
+				3976DE9C2A51CF4900307146 /* HomeViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39EC20122A4E98AC007E4C37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EC201B2A4E98AC007E4C37 /* EasyParkAssignmentUITests.swift in Sources */,
+				39EC201D2A4E98AC007E4C37 /* EasyParkAssignmentUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39EC200E2A4E98AC007E4C37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39EC1FFB2A4E98AB007E4C37 /* EasyParkAssignment */;
+			targetProxy = 39EC200D2A4E98AC007E4C37 /* PBXContainerItemProxy */;
+		};
+		39EC20182A4E98AC007E4C37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39EC1FFB2A4E98AB007E4C37 /* EasyParkAssignment */;
+			targetProxy = 39EC20172A4E98AC007E4C37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		39EC201E2A4E98AC007E4C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		39EC201F2A4E98AC007E4C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39EC20212A4E98AC007E4C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EasyParkAssignment/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odin.EasyParkAssignment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39EC20222A4E98AC007E4C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EasyParkAssignment/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odin.EasyParkAssignment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		39EC20242A4E98AC007E4C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odin.EasyParkAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyParkAssignmentTests/EasyParkAssignmentTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyParkAssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyParkAssignment";
+			};
+			name = Debug;
+		};
+		39EC20252A4E98AC007E4C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odin.EasyParkAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyParkAssignmentTests/EasyParkAssignmentTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyParkAssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyParkAssignment";
+			};
+			name = Release;
+		};
+		39EC20272A4E98AC007E4C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odin.EasyParkAssignmentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EasyParkAssignment;
+			};
+			name = Debug;
+		};
+		39EC20282A4E98AC007E4C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.odin.EasyParkAssignmentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EasyParkAssignment;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39EC1FF72A4E98AB007E4C37 /* Build configuration list for PBXProject "EasyParkAssignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EC201E2A4E98AC007E4C37 /* Debug */,
+				39EC201F2A4E98AC007E4C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39EC20202A4E98AC007E4C37 /* Build configuration list for PBXNativeTarget "EasyParkAssignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EC20212A4E98AC007E4C37 /* Debug */,
+				39EC20222A4E98AC007E4C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39EC20232A4E98AC007E4C37 /* Build configuration list for PBXNativeTarget "EasyParkAssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EC20242A4E98AC007E4C37 /* Debug */,
+				39EC20252A4E98AC007E4C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39EC20262A4E98AC007E4C37 /* Build configuration list for PBXNativeTarget "EasyParkAssignmentUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EC20272A4E98AC007E4C37 /* Debug */,
+				39EC20282A4E98AC007E4C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39EC1FF42A4E98AB007E4C37 /* Project object */;
+}
