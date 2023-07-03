@@ -8,23 +8,53 @@
 import Foundation
 import CoreLocation
 
-protocol LocationManagerService {
-    var serviceDelegate: LocationManagerOutputDelegate? {get set}
+import Foundation
+import CoreLocation
+
+protocol LocationFetcher {
+    var locationFetcherDelegate: LocationFetcherDelegate? {get set}
     func requestLocation()
 }
 
-protocol LocationManagerOutputDelegate {
-    func didUpdateLocation(_ manager: LocationManagerService, with locations: [CLLocation])
+protocol LocationFetcherDelegate {
+    func locationFetcher(_ fetcher: LocationFetcher, didUpdateLocations locations: [CLLocation])
 }
 
-extension CLLocationManager: LocationManagerService {
-    
-    var serviceDelegate: LocationManagerOutputDelegate? {
+extension CLLocationManager: LocationFetcher {
+    var locationFetcherDelegate: LocationFetcherDelegate? {
         get {
-            return delegate as! LocationManagerOutputDelegate?
+            return delegate as! LocationFetcherDelegate?
         }
         set {
             delegate = newValue as! CLLocationManagerDelegate?
         }
+    }
+}
+
+class LocationProvider: NSObject {
+    
+    var locationFetcher: LocationFetcher
+    var getLastLocation: ((CLLocation?) -> Void)?
+    
+    init(locationFetcher: LocationFetcher = CLLocationManager()) {
+        self.locationFetcher = locationFetcher
+        super.init()
+        self.locationFetcher.locationFetcherDelegate = self
+    }
+    
+    func reqeustForCurrentUserLocation() {
+        locationFetcher.requestLocation()
+    }
+}
+
+extension LocationProvider: LocationFetcherDelegate {
+    func locationFetcher(_ fetcher: LocationFetcher, didUpdateLocations locations: [CLLocation]) {
+        getLastLocation?(locations.first)
+    }
+}
+
+extension LocationProvider: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationFetcher(manager, didUpdateLocations: locations)
     }
 }

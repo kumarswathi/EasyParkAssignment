@@ -17,16 +17,13 @@ class HomeViewModel: NSObject, ObservableObject {
     
     //let locationManager: LocationProvider
     let fetchCountries: FetchCountriesUseCase
-    
-    var locationService: LocationManagerService
+    var locationService: LocationProvider
     var getLastLocation: ((CLLocation?) -> Void)?
     
     init(fetchCountries: FetchCountriesUseCase,
-         locationService: LocationManagerService = CLLocationManager()) {
+         locationService: LocationProvider = LocationProvider()) {
         self.fetchCountries = fetchCountries
         self.locationService = locationService
-        super.init()
-        self.locationService.serviceDelegate = self
     }
     
     func onAppearAction() async {
@@ -35,7 +32,14 @@ class HomeViewModel: NSObject, ObservableObject {
     
     //Request User Location only once in the app.
     func didSelectLocationButton() {
-        locationService.requestLocation()
+        locationService.reqeustForCurrentUserLocation()
+        locationService.getLastLocation = { location in
+            guard let userLocation = location else { return }
+            self.location = userLocation
+            /*userLocation.fetchCityAndCountry(completion: { city, country, error in
+             self.currentLocationName = city
+             })*/
+        }
     }
     
     func distance(between userLocation: CLLocation, and city: City) -> String {
@@ -57,30 +61,5 @@ extension HomeViewModel {
         case let .failure(error):
             alertError = error
         }
-    }
-}
-
-//Update ViewModel with location output
-extension HomeViewModel: LocationManagerOutputDelegate {
-    func didUpdateLocation(_ manager: LocationManagerService, with locations: [CLLocation]) {
-        if let userLocation = locations.first {
-            self.location = userLocation
-            userLocation.fetchCityAndCountry(completion: { city, country, error in
-                self.currentLocationName = city
-            })
-        }
-    }
-}
-
-// Listen for Location updates with delegates
-
-extension HomeViewModel: CLLocationManagerDelegate {
-   
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        didUpdateLocation(manager, with: locations)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
 }

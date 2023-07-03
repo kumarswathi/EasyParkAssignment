@@ -9,42 +9,27 @@ import XCTest
 @testable import EasyParkAssignment
 import CoreLocation
 
-
-final class CoreLocationTests: XCTestCase {
+class CoreLocationTests: XCTestCase {
     
-    struct MockLocationFetcher: LocationManagerService {
-        var delegate: LocationManagerOutputDelegate?
-        
-        // callback to provide mock locations
-        var handleRequestLocation: (() -> CLLocation)?
-        
-        func requestLocation() {
-            guard let location = handleRequestLocation?() else { return }
-            delegate?.locationFetcher(self, didUpdateLocations: [location])
-        }
-    }
-    
-    
-    func testLocationProvider_fetchUserLocation() {
-        var locationFetcher = MockLocationFetcher()
+    func testReqeustForCurrentUserLocationu() {
+        var locationFetcher = MockLocationProvider()
         let requestLocationExpectation = expectation(description: "request location")
         
         locationFetcher.handleRequestLocation = {
             requestLocationExpectation.fulfill()
-            return CLLocation(latitude: 37.3293, longitude: -121.8893)
+            return CLLocation(latitude: 59.4419, longitude: 18.0703)
         }
-        let locationProvider = LocationProvider(locationFetcher: locationFetcher)
-        XCTAssertNotNil(locationProvider.locationFetcher.locationFetcherDelegate)
+        
+        let sut = LocationProvider(locationFetcher: locationFetcher)
+        XCTAssertNotNil(sut.locationFetcher.locationFetcherDelegate)
         
         let completionExpectation = expectation(description: "completion")
-        locationProvider.getLastLocation = { loc in
+        sut.getLastLocation = { loc in
             XCTAssertNotNil(loc)
             completionExpectation.fulfill()
         }
-        
-        locationProvider.requestCurrentLocationOfUser()
+        sut.reqeustForCurrentUserLocation()
         
         wait(for: [requestLocationExpectation, completionExpectation], timeout: 1)
-        
     }
 }
