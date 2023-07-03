@@ -16,6 +16,7 @@
 		390B49E02A51AB6700FBEE6C /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49CE2A51AB6700FBEE6C /* Countries.swift */; };
 		390B49E32A51AB6700FBEE6C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B49D32A51AB6700FBEE6C /* HomeViewModel.swift */; };
 		392853C62A531C3700742955 /* MockLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392853C52A531C3700742955 /* MockLocationFetcher.swift */; };
+		393842112A5329990084C7AF /* NetworkingErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393842102A5329990084C7AF /* NetworkingErrorTests.swift */; };
 		3976DE9C2A51CF4900307146 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DE9B2A51CF4900307146 /* HomeViewModelTests.swift */; };
 		3976DE9F2A51F1ED00307146 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DE9E2A51F1ED00307146 /* XCTestCase+Extensions.swift */; };
 		3976DEA42A51F2D900307146 /* FetchCountriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEA32A51F2D900307146 /* FetchCountriesUseCaseTests.swift */; };
@@ -63,6 +64,7 @@
 		390B49CE2A51AB6700FBEE6C /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		390B49D32A51AB6700FBEE6C /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		392853C52A531C3700742955 /* MockLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationFetcher.swift; sourceTree = "<group>"; };
+		393842102A5329990084C7AF /* NetworkingErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorTests.swift; sourceTree = "<group>"; };
 		3976DE9B2A51CF4900307146 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		3976DE9D2A51F17100307146 /* EasyParkAssignmentTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EasyParkAssignmentTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3976DE9E2A51F1ED00307146 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
@@ -184,17 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				390B49CE2A51AB6700FBEE6C /* Countries.swift */,
-				390B49CF2A51AB6700FBEE6C /* Errors */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		390B49CF2A51AB6700FBEE6C /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				390B49842A5170C200FBEE6C /* NetworkingError.swift */,
-			);
-			path = Errors;
 			sourceTree = "<group>";
 		};
 		390B49D22A51AB6700FBEE6C /* Presentation */ = {
@@ -230,6 +223,7 @@
 			children = (
 				3976DEAB2A51FD1B00307146 /* URLProtocolStub.swift */,
 				3976DE9E2A51F1ED00307146 /* XCTestCase+Extensions.swift */,
+				393842102A5329990084C7AF /* NetworkingErrorTests.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -255,6 +249,7 @@
 		3976DEBF2A52B90400307146 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				390B49842A5170C200FBEE6C /* NetworkingError.swift */,
 				3976DEC02A52B91800307146 /* CLLocation + Extension.swift */,
 				3976DEC22A52BFE700307146 /* Array + Extension.swift */,
 				3976DEC62A52CEC200307146 /* Double + Extension.swift */,
@@ -487,6 +482,7 @@
 				3976DE9F2A51F1ED00307146 /* XCTestCase+Extensions.swift in Sources */,
 				3976DEA42A51F2D900307146 /* FetchCountriesUseCaseTests.swift in Sources */,
 				3976DEA62A51F7CB00307146 /* FetchCountriesRepositoryTest.swift in Sources */,
+				393842112A5329990084C7AF /* NetworkingErrorTests.swift in Sources */,
 				3976DE9C2A51CF4900307146 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
