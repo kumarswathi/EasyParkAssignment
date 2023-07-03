@@ -13,19 +13,18 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            if let currentLocation = viewModel.locationName {
-                Text(currentLocation)
-            } else {
-                locationButton
-            }
-            
-            List {
-                ForEach(viewModel.cities, id: \.name) { city in
-                    HStack {
-                        Text(city.name)
-                        Spacer()
+            if let userLocation = viewModel.location {
+                List {
+                    ForEach(viewModel.cities, id: \.self) { city in
+                        HStack {
+                            Text(city.name)
+                            Spacer()
+                            Text(viewModel.distance(between: userLocation, and: city))
+                        }
                     }
                 }
+            } else {
+                enableLocationView
             }
         }
         .alert(item: $viewModel.alertError) { error in
@@ -39,13 +38,18 @@ struct HomeView: View {
         }
     }
     
+    private var enableLocationView: some View {
+        VStack {
+            Text("Share Location to Check Distance")
+            locationButton
+        }
+    }
     
     private var locationButton: some View {
         LocationButton(.currentLocation) {
             viewModel.didSelectLocationButton()
         }
-        .labelStyle(.iconOnly)
-        .tint(.pink)
+        .labelStyle(.titleAndIcon)
     }
 }
 

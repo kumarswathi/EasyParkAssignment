@@ -10,7 +10,7 @@ struct Countries: Codable, Equatable {
     let cities: [City]
 }
 
-struct City: Codable, Equatable {
+struct City: Codable, Equatable, Hashable {
     let name: String
     let lat, lon: Double
     let r: Int
@@ -18,14 +18,12 @@ struct City: Codable, Equatable {
 }
 
 extension Countries {
-    
     static func mock() -> Self {
         return Countries(status: "success", cities: [.mockCity1(), .mockCity2()])
     }
 }
 
 extension City {
-    
     static func mockCity2() -> Self {
         return City(name: "Lahti",
                 lat: 60.9837351,

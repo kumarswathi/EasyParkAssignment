@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import EasyParkAssignment
+import CoreLocation
 
 final class HomeViewModelTests: XCTestCase {
     
@@ -36,6 +37,14 @@ final class HomeViewModelTests: XCTestCase {
         let sut = makeSUT(fetchCountriesUseCase: fetchCountriesUseCase)
         await sut.onAppearAction()
         XCTAssertEqual(sut.alertError, errorNetworkError)
+    }
+    
+    @MainActor
+    func testHomeViewModel_distanceBetweenCities() {
+        let sut = makeSUT()
+        let mockUserLocation = CLLocation(latitude: 59.4419, longitude: 18.0703)
+        let distance = sut.distance(between: mockUserLocation, and: Self.mockCity1)
+        XCTAssertFalse(distance.isEmpty)
     }
     
     // MARK: - Helpers

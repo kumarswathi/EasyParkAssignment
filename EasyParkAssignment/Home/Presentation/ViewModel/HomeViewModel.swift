@@ -12,17 +12,18 @@ import CoreLocation
 class HomeViewModel: NSObject, ObservableObject {
     @Published var cities = [City]()
     @Published var alertError: NetworkingError?
-    @Published var locationName: String?
+    @Published var currentLocationName: String?
+    @Published var location: CLLocation?
     
-    let manager = CLLocationManager()
+    let locationManager = CLLocationManager()
     let fetchCountries: FetchCountriesUseCase
-
+    
     init(fetchCountries: FetchCountriesUseCase) {
         self.fetchCountries = fetchCountries
         super.init()
-        manager.delegate = self
+        locationManager.delegate = self
     }
-
+    
     func onAppearAction() async {
         await loadCountries()
     }
@@ -30,21 +31,26 @@ class HomeViewModel: NSObject, ObservableObject {
     func didSelectLocationButton() {
         requestLocationOnlyOnce()
     }
+    
+    func distance(between userLocation: CLLocation, and city: City) -> String {
+        let cityLocation = CLLocation(latitude: city.lat, longitude: city.lon)
+        let distance = cityLocation.distance(from: userLocation)
+        return distance.distanceFormatter()
+    }
 }
 
 // Fetch User Location
 
 extension HomeViewModel: CLLocationManagerDelegate {
     
+    //Request User Location only once in the app.
     private func requestLocationOnlyOnce() {
-        manager.requestLocation()
+        locationManager.requestLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            location.fetchCityAndCountry { cityName, _, _ in
-                self.locationName = cityName
-            }
+            self.location = location
         }
     }
     
@@ -57,20 +63,14 @@ extension HomeViewModel: CLLocationManagerDelegate {
 // FetchCountriesUseCase
 
 extension HomeViewModel {
-  
+    
     private func loadCountries() async {
         let result = await fetchCountries.fetchCountries()
         switch result {
         case let .success(response):
-            self.cities = response.cities
+            self.cities = response.cities.removeDuplicates()
         case let .failure(error):
             alertError = error
         }
-    }
-}
-
-extension CLLocation {
-    func fetchCityAndCountry(completion: @escaping (_ city: String?, _ country:  String?, _ error: Error?) -> ()) {
-        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first?.locality, $0?.first?.country, $1) }
     }
 }
