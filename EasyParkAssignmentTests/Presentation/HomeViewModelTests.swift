@@ -70,14 +70,7 @@ final class HomeViewModelTests: XCTestCase {
             XCTAssertNotNil(location)
             completionExpectation.fulfill()
         }
-        
-        let locationExpectation = expectation(description: "location")
-        locationProvider.getLastLocation = { location in
-            XCTAssertNotNil(location)
-            locationExpectation.fulfill()
-        }
-        
-        
+    
         sut.didSelectLocationButton()
         
         wait(for: [requestLocationExpectation, completionExpectation], timeout: 1)
