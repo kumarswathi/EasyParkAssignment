@@ -5,28 +5,47 @@
 //  Created by Swathi on 2023-07-02.
 //
 
-
 import SwiftUI
+import CoreLocationUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.cities, id: \.name) { city in
-                HStack {
-                    Text(city.name)
-                    Spacer()
+        VStack {
+            if let currentLocation = viewModel.locationName {
+                Text(currentLocation)
+            } else {
+                locationButton
+            }
+            
+            List {
+                ForEach(viewModel.cities, id: \.name) { city in
+                    HStack {
+                        Text(city.name)
+                        Spacer()
+                    }
                 }
             }
         }
-        .sheet(item: $viewModel.alertError) { error in
-            Text(error.localizedDescription)
+        .alert(item: $viewModel.alertError) { error in
+            Alert(title: Text(error.localizedDescription),
+                  message: nil,
+                  dismissButton: .cancel())
         }
         .navigationTitle("Cities")
         .task {
             await viewModel.onAppearAction()
         }
+    }
+    
+    
+    private var locationButton: some View {
+        LocationButton(.currentLocation) {
+            viewModel.didSelectLocationButton()
+        }
+        .labelStyle(.iconOnly)
+        .tint(.pink)
     }
 }
 
