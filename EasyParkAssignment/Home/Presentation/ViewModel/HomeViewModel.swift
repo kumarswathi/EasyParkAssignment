@@ -34,11 +34,15 @@ class HomeViewModel: NSObject, ObservableObject {
         locationService.reqeustForCurrentUserLocation()
         locationService.getLastLocation = { location in
             guard let userLocation = location else { return }
-            self.location = userLocation
-            /*userLocation.fetchCityAndCountry(completion: { city, country, error in
-             self.currentLocationName = city
-             })*/
+            self.updateLocation(with: userLocation)
         }
+    }
+    
+    func updateLocation(with value: CLLocation) {
+        self.location = value
+        /*userLocation.fetchCityAndCountry(completion: { city, country, error in
+         self.currentLocationName = city
+         })*/
     }
     
     func distance(between userLocation: CLLocation, and city: City) -> String {
