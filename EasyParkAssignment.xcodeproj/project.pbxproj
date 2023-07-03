@@ -25,6 +25,8 @@
 		3976DEC12A52B91800307146 /* CLLocation + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEC02A52B91800307146 /* CLLocation + Extension.swift */; };
 		3976DEC32A52BFE700307146 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEC22A52BFE700307146 /* Array + Extension.swift */; };
 		3976DEC72A52CEC200307146 /* Double + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DEC62A52CEC200307146 /* Double + Extension.swift */; };
+		3976DECF2A52FB5000307146 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DECE2A52FB5000307146 /* LocationProvider.swift */; };
+		3976DED12A52FB9C00307146 /* CoreLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DED02A52FB9C00307146 /* CoreLocationTests.swift */; };
 		39EC20002A4E98AB007E4C37 /* EasyParkAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC1FFF2A4E98AB007E4C37 /* EasyParkAssignmentApp.swift */; };
 		39EC20042A4E98AC007E4C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39EC20032A4E98AC007E4C37 /* Assets.xcassets */; };
 		39EC20072A4E98AC007E4C37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39EC20062A4E98AC007E4C37 /* Preview Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		3976DEC02A52B91800307146 /* CLLocation + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation + Extension.swift"; sourceTree = "<group>"; };
 		3976DEC22A52BFE700307146 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
 		3976DEC62A52CEC200307146 /* Double + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Extension.swift"; sourceTree = "<group>"; };
+		3976DECE2A52FB5000307146 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		3976DED02A52FB9C00307146 /* CoreLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationTests.swift; sourceTree = "<group>"; };
 		39EC1FFC2A4E98AB007E4C37 /* EasyParkAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyParkAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39EC1FFF2A4E98AB007E4C37 /* EasyParkAssignmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyParkAssignmentApp.swift; sourceTree = "<group>"; };
 		39EC20032A4E98AC007E4C37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				390B49D32A51AB6700FBEE6C /* HomeViewModel.swift */,
+				3976DECE2A52FB5000307146 /* LocationProvider.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				3976DE9B2A51CF4900307146 /* HomeViewModelTests.swift */,
+				3976DED02A52FB9C00307146 /* CoreLocationTests.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				39EC20002A4E98AB007E4C37 /* EasyParkAssignmentApp.swift in Sources */,
 				3976DEC72A52CEC200307146 /* Double + Extension.swift in Sources */,
 				390B49DA2A51AB6700FBEE6C /* FetchCountriesAPIServiceImp.swift in Sources */,
+				3976DECF2A52FB5000307146 /* LocationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +478,7 @@
 			files = (
 				3976DEAE2A51FE3A00307146 /* FetchCountriesDataLayerTests.swift in Sources */,
 				3976DEAA2A51FCFA00307146 /* FetchCountriesAPIServiceImpTest.swift in Sources */,
+				3976DED12A52FB9C00307146 /* CoreLocationTests.swift in Sources */,
 				3976DEAC2A51FD1B00307146 /* URLProtocolStub.swift in Sources */,
 				3976DE9F2A51F1ED00307146 /* XCTestCase+Extensions.swift in Sources */,
 				3976DEA42A51F2D900307146 /* FetchCountriesUseCaseTests.swift in Sources */,

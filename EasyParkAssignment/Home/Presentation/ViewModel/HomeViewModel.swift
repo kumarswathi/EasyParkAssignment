@@ -15,21 +15,27 @@ class HomeViewModel: NSObject, ObservableObject {
     @Published var currentLocationName: String?
     @Published var location: CLLocation?
     
-    let locationManager = CLLocationManager()
+    //let locationManager: LocationProvider
     let fetchCountries: FetchCountriesUseCase
     
-    init(fetchCountries: FetchCountriesUseCase) {
+    var locationService: LocationManagerService
+    var getLastLocation: ((CLLocation?) -> Void)?
+    
+    init(fetchCountries: FetchCountriesUseCase,
+         locationService: LocationManagerService = CLLocationManager()) {
         self.fetchCountries = fetchCountries
+        self.locationService = locationService
         super.init()
-        locationManager.delegate = self
+        self.locationService.serviceDelegate = self
     }
     
     func onAppearAction() async {
         await loadCountries()
     }
     
+    //Request User Location only once in the app.
     func didSelectLocationButton() {
-        requestLocationOnlyOnce()
+        locationService.requestLocation()
     }
     
     func distance(between userLocation: CLLocation, and city: City) -> String {
@@ -38,27 +44,6 @@ class HomeViewModel: NSObject, ObservableObject {
         return distance.distanceFormatter()
     }
 }
-
-// Fetch User Location
-
-extension HomeViewModel: CLLocationManagerDelegate {
-    
-    //Request User Location only once in the app.
-    private func requestLocationOnlyOnce() {
-        locationManager.requestLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            self.location = location
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        alertError = NetworkingError.networkError(cause: "Update Location")
-    }
-}
-
 
 // FetchCountriesUseCase
 
@@ -72,5 +57,30 @@ extension HomeViewModel {
         case let .failure(error):
             alertError = error
         }
+    }
+}
+
+//Update ViewModel with location output
+extension HomeViewModel: LocationManagerOutputDelegate {
+    func didUpdateLocation(_ manager: LocationManagerService, with locations: [CLLocation]) {
+        if let userLocation = locations.first {
+            self.location = userLocation
+            userLocation.fetchCityAndCountry(completion: { city, country, error in
+                self.currentLocationName = city
+            })
+        }
+    }
+}
+
+// Listen for Location updates with delegates
+
+extension HomeViewModel: CLLocationManagerDelegate {
+   
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        didUpdateLocation(manager, with: locations)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
 }
