@@ -15,7 +15,6 @@ class HomeViewModel: NSObject, ObservableObject {
     @Published var currentLocationName: String?
     @Published var location: CLLocation?
     
-    //let locationManager: LocationProvider
     let fetchCountries: FetchCountriesUseCase
     var locationService: LocationProvider
     var getLastLocation: ((CLLocation?) -> Void)?

@@ -12,7 +12,7 @@ import CoreLocation
 class CoreLocationTests: XCTestCase {
     
     func testReqeustForCurrentUserLocationu() {
-        var locationFetcher = MockLocationProvider()
+        var locationFetcher = MockLocationFetcher()
         let requestLocationExpectation = expectation(description: "request location")
         
         locationFetcher.handleRequestLocation = {

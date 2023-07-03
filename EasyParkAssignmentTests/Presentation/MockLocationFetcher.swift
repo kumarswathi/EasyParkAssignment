@@ -1,5 +1,5 @@
 //
-//  MockLocationProvider.swift
+//  MockLocationFetcher.swift
 //  EasyParkAssignmentTests
 //
 //  Created by Swathi on 2023-07-03.
@@ -9,7 +9,7 @@ import Foundation
 @testable import EasyParkAssignment
 import CoreLocation
 
-struct MockLocationProvider: LocationFetcher {
+struct MockLocationFetcher: LocationFetcher {
     var locationFetcherDelegate: LocationFetcherDelegate?
     
     // callback to provide mock locations

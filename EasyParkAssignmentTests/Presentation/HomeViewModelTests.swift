@@ -47,6 +47,43 @@ final class HomeViewModelTests: XCTestCase {
         XCTAssertFalse(distance.isEmpty)
     }
     
+    @MainActor
+    func testHomeViewModel_didSelectLocationButton() {
+        var locationFetcher = MockLocationFetcher()
+        let mockUserLocation = CLLocation(latitude: 59.4419, longitude: 18.0703)
+        let requestLocationExpectation = expectation(description: "request location")
+        locationFetcher.handleRequestLocation = {
+            requestLocationExpectation.fulfill()
+            return mockUserLocation
+        }
+        
+        let locationProvider = LocationProvider(locationFetcher: locationFetcher)
+        XCTAssertNotNil(locationProvider.locationFetcher.locationFetcherDelegate)
+        
+        let fetchCountriesSource = Self.buildFetchCountriesRepository()
+        let fetchCountriesUseCase = FetchCountriesUseCase(source: fetchCountriesSource)
+        let sut = HomeViewModel(fetchCountries: fetchCountriesUseCase, locationService: locationProvider)
+        
+        
+        let completionExpectation = expectation(description: "completion")
+        locationProvider.getLastLocation = { location in
+            XCTAssertNotNil(location)
+            completionExpectation.fulfill()
+        }
+        
+        let locationExpectation = expectation(description: "location")
+        locationProvider.getLastLocation = { location in
+            XCTAssertNotNil(location)
+            locationExpectation.fulfill()
+        }
+        
+        
+        sut.didSelectLocationButton()
+        
+        wait(for: [requestLocationExpectation, completionExpectation], timeout: 1)
+        
+    }
+    
     // MARK: - Helpers
     
     @MainActor
