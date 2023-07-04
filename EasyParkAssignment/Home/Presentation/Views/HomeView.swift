@@ -15,17 +15,27 @@ struct HomeView: View {
         VStack {
             if let userLocation = viewModel.location {
                 List {
-                    ForEach(viewModel.cities, id: \.self) { city in
+                    Section(content: {
+                        ForEach(viewModel.cities, id: \.self) { city in
+                            Button {
+                                viewModel.didSelect(city: city)
+                            } label: {
+                                HStack {
+                                    Text(city.name)
+                                    Spacer()
+                                    Text(viewModel.distance(between: userLocation, and: city))
+                                }
+                            }
+                            .foregroundColor(.black)
+                        }
+                    }, header: {
                         HStack {
-                            Text(city.name)
+                            Text("Cities")
                             Spacer()
-                            Text(viewModel.distance(between: userLocation, and: city))
+                            Text("Distance from User Location")
                         }
-                        .padding()
-                        .onTapGesture {
-                            viewModel.didSelect(city: city)
-                        }
-                    }
+                    })
+                    
                 }
             } else {
                 enableLocationView
@@ -47,7 +57,7 @@ struct HomeView: View {
     
     private var enableLocationView: some View {
         VStack {
-            Text("Share Location to Check Distance")
+            Text("Allow App to access device's location")
             locationButton
         }
     }
@@ -56,7 +66,10 @@ struct HomeView: View {
         LocationButton(.currentLocation) {
             viewModel.didSelectLocationButton()
         }
-        .labelStyle(.titleAndIcon)
+        .labelStyle(.iconOnly)
+        .symbolVariant(.fill)
+        .foregroundColor(.white)
+        
     }
 }
 

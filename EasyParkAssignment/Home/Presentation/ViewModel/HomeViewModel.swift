@@ -35,11 +35,7 @@ class HomeViewModel: NSObject, ObservableObject {
     
     //Request User Location only once in the app.
     func didSelectLocationButton() {
-        locationService.reqeustForCurrentUserLocation()
-        locationService.getLastLocation = { location in
-            guard let userLocation = location else { return }
-            self.updateLocation(with: userLocation)
-        }
+        getUserLocation()
     }
     
     func updateLocation(with value: CLLocation) {
@@ -50,6 +46,14 @@ class HomeViewModel: NSObject, ObservableObject {
         let cityLocation = CLLocation(latitude: city.lat, longitude: city.lon)
         let distance = cityLocation.distance(from: userLocation)
         return distance.distanceFormatter()
+    }
+    
+    private func getUserLocation() {
+        locationService.reqeustForCurrentUserLocation()
+        locationService.getLastLocation = { location in
+            guard let userLocation = location else { return }
+            self.updateLocation(with: userLocation)
+        }
     }
 }
 

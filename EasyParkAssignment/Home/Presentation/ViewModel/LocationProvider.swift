@@ -49,7 +49,9 @@ class LocationProvider: NSObject {
 
 extension LocationProvider: LocationFetcherDelegate {
     func locationFetcher(_ fetcher: LocationFetcher, didUpdateLocations locations: [CLLocation]) {
-        getLastLocation?(locations.first)
+        if let location = locations.first {
+            self.getLastLocation?(location)
+        }
     }
 }
 
