@@ -57,4 +57,8 @@ extension LocationProvider: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationFetcher(manager, didUpdateLocations: locations)
     }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+    }
 }

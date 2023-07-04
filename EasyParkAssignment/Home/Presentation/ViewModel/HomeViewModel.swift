@@ -14,6 +14,7 @@ class HomeViewModel: NSObject, ObservableObject {
     @Published var alertError: NetworkingError?
     @Published var currentLocationName: String?
     @Published var location: CLLocation?
+    @Published var selectedCity: City?
     
     let fetchCountries: FetchCountriesUseCase
     var locationService: LocationProvider
@@ -27,6 +28,10 @@ class HomeViewModel: NSObject, ObservableObject {
     
     func onAppearAction() async {
         await loadCountries()
+    }
+    
+    func didSelect(city: City) {
+        self.selectedCity = city
     }
     
     //Request User Location only once in the app.

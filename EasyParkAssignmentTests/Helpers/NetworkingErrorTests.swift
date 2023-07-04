@@ -18,6 +18,4 @@ final class NetworkingErrorTests: XCTestCase {
         XCTAssertEqual(errorNetworkError.errorDescription, remoteErrorCause)
         XCTAssertNotNil(errorNetworkError.id)
     }
-
 }
-

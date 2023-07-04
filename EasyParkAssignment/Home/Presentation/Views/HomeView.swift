@@ -21,6 +21,10 @@ struct HomeView: View {
                             Spacer()
                             Text(viewModel.distance(between: userLocation, and: city))
                         }
+                        .padding()
+                        .onTapGesture {
+                            viewModel.didSelect(city: city)
+                        }
                     }
                 }
             } else {
@@ -32,6 +36,9 @@ struct HomeView: View {
                   message: nil,
                   dismissButton: .cancel())
         }
+        .sheet(item: $viewModel.selectedCity, content: { city in
+            DetailView(selectedCity: city)
+        })
         .navigationTitle("Cities")
         .task {
             await viewModel.onAppearAction()
