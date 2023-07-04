@@ -12,7 +12,6 @@ import CoreLocation
 class HomeViewModel: NSObject, ObservableObject {
     @Published var cities = [City]()
     @Published var alertError: NetworkingError?
-    @Published var currentLocationName: String?
     @Published var location: CLLocation?
     @Published var selectedCity: City?
     
@@ -45,9 +44,6 @@ class HomeViewModel: NSObject, ObservableObject {
     
     func updateLocation(with value: CLLocation) {
         self.location = value
-        /*userLocation.fetchCityAndCountry(completion: { city, country, error in
-         self.currentLocationName = city
-         })*/
     }
     
     func distance(between userLocation: CLLocation, and city: City) -> String {

@@ -18,8 +18,8 @@ final class HomeViewModelTests: XCTestCase {
     static let dataSourceRemoteStub = FetchCountriesDataLayerStub(response: .success(mockCountry))
     static let fetchCountriesService = buildFetchCountriesRepository()
     static let fetchCountriesUseCase = FetchCountriesUseCase(source: fetchCountriesService)
-   
-
+    
+    
     @MainActor
     func testHomeViewModel_onAppear_citiesArePopulated() async {
         let sut = makeSUT()
@@ -56,6 +56,13 @@ final class HomeViewModelTests: XCTestCase {
     }
     
     @MainActor
+    func testHomeViewModel_didSelectCity() {
+        let sut = makeSUT()
+        sut.didSelect(city: Self.mockCity1)
+        XCTAssertEqual(sut.selectedCity, Self.mockCity1)
+    }
+    
+    @MainActor
     func testHomeViewModel_didSelectLocationButton() {
         var locationFetcher = MockLocationFetcher()
         let mockUserLocation = CLLocation(latitude: 59.4419, longitude: 18.0703)
@@ -77,11 +84,8 @@ final class HomeViewModelTests: XCTestCase {
             XCTAssertNotNil(location)
             completionExpectation.fulfill()
         }
-    
         sut.didSelectLocationButton()
-        
         wait(for: [requestLocationExpectation, completionExpectation], timeout: 1)
-        
     }
     
     // MARK: - Helpers

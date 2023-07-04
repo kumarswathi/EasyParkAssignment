@@ -59,6 +59,6 @@ extension LocationProvider: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
+        getLastLocation?(nil)
     }
 }

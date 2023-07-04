@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import MapKit
 
 struct Countries: Codable, Equatable {
     let status: String
@@ -22,9 +21,4 @@ struct City: Codable, Equatable, Hashable, Identifiable {
     var id: UUID {
         UUID()
     }
-}
-
-struct Coordinate: Codable, Hashable {
-    public let latitude: Double
-    public let longitude: Double
 }

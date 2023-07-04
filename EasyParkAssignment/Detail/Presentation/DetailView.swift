@@ -8,19 +8,31 @@
 import SwiftUI
 
 struct DetailView: View {
-    var selectedCity: City
     @Environment(\.presentationMode) var presentationMode
-
+    var selectedCity: City
+    
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: { presentationMode.wrappedValue.dismiss() },
-                       label: { Image(systemName: "xmark")
-                })
-            }
+        ZStack(alignment: .top, content: {
             MapViewRepresentable(selectedCity: selectedCity)
-        }
+            
+        })
+        .edgesIgnoringSafeArea(.all)
+        .overlay(alignment: .topTrailing, content: {
+            close
+                .padding(.all, 16)
+        })
+    }
+    
+    private var close: some View {
+        Button(
+            action: { presentationMode.wrappedValue.dismiss() },
+            label: {
+                Image(systemName: "xmark.square.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.gray)
+            })
+        
     }
 }
 
