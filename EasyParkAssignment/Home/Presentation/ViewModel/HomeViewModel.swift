@@ -10,19 +10,23 @@ import CoreLocation
 
 @MainActor
 class HomeViewModel: NSObject, ObservableObject {
-    @Published var cities = [City]()
+    @Published var viewState: HomeViewState
     @Published var alertError: NetworkingError?
-    @Published var location: CLLocation?
     @Published var selectedCity: City?
+    
+    var cities = [City]()
+    var location: CLLocation?
     
     let fetchCountries: FetchCountriesUseCase
     var locationService: LocationProvider
     var getLastLocation: ((CLLocation?) -> Void)?
     
     init(fetchCountries: FetchCountriesUseCase,
-         locationService: LocationProvider = LocationProvider()) {
+         locationService: LocationProvider = LocationProvider(),
+         viewState: HomeViewState = .initial) {
         self.fetchCountries = fetchCountries
         self.locationService = locationService
+        self.viewState = viewState
     }
     
     func onAppearAction() async {
@@ -40,6 +44,7 @@ class HomeViewModel: NSObject, ObservableObject {
     
     func updateLocation(with value: CLLocation) {
         self.location = value
+        self.viewState = .locationEnabled(value, cities)
     }
     
     func distance(between userLocation: CLLocation, and city: City) -> String {
@@ -70,4 +75,9 @@ extension HomeViewModel {
             alertError = error
         }
     }
+}
+
+enum HomeViewState {
+    case initial
+    case locationEnabled(CLLocation, [City])
 }

@@ -7,23 +7,28 @@
 
 import SwiftUI
 import CoreLocationUI
+import CoreLocation
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         VStack {
-            if let userLocation = viewModel.location {
+            switch viewModel.viewState {
+            case .initial:
+                enableLocationView
+            case .locationEnabled(let userLocation, let cities):
                 List {
                     Section(content: {
-                        ForEach(viewModel.cities, id: \.self) { city in
+                        ForEach(cities, id: \.self) { city in
                             Button {
                                 viewModel.didSelect(city: city)
                             } label: {
                                 HStack {
                                     Text(city.name)
                                     Spacer()
-                                    Text(viewModel.distance(between: userLocation, and: city))
+                                    Text(viewModel.distance(between: userLocation,
+                                                            and: city))
                                 }
                             }
                             .foregroundColor(.black)
@@ -35,10 +40,7 @@ struct HomeView: View {
                             Text("Distance from User Location")
                         }
                     })
-                    
                 }
-            } else {
-                enableLocationView
             }
         }
         .alert(item: $viewModel.alertError) { error in
@@ -69,18 +71,20 @@ struct HomeView: View {
         .labelStyle(.iconOnly)
         .symbolVariant(.fill)
         .foregroundColor(.white)
-        
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
+    static let mockLocation = CLLocation(latitude: 59.4419,
+                                         longitude: 18.0703)
     static let source = FetchCountriesRepositoryStub()
     static let useCase = FetchCountriesUseCase(source: source)
-    static let homeViewModel = HomeViewModel(fetchCountries: useCase)
-    
+    static let homeViewModelInitial = HomeViewModel(fetchCountries: useCase, viewState: .initial)
+    static let homeViewModelLocation = HomeViewModel(fetchCountries: useCase,
+                                                     viewState: .locationEnabled(mockLocation,
+                                                                                 [.mockCity1(), .mockCity2()]))
     static var previews: some View {
-        NavigationStack {
-            HomeView(viewModel: homeViewModel)
-        }
+        HomeView(viewModel: homeViewModelInitial)
+        HomeView(viewModel: homeViewModelLocation)
     }
 }

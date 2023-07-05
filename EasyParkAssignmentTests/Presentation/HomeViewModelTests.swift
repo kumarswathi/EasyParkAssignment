@@ -19,7 +19,6 @@ final class HomeViewModelTests: XCTestCase {
     static let fetchCountriesService = buildFetchCountriesRepository()
     static let fetchCountriesUseCase = FetchCountriesUseCase(source: fetchCountriesService)
     
-    
     @MainActor
     func testHomeViewModel_onAppear_citiesArePopulated() async {
         let sut = makeSUT()
